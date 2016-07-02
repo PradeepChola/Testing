@@ -1,0 +1,19 @@
+
+package testcases;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class test1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+		ChromeDriver driver=new ChromeDriver();
+		//WebDriver driver = new FirefoxDriver();
+		Thread.sleep(4000);
+		driver.get("https://www.google.co.in/#gws_rd=ssl");
+		
+	}
+
+}
