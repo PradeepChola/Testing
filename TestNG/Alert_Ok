@@ -1,0 +1,23 @@
+package testNG;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
+import org.testng.annotations.Test;
+
+public class Alerts_Ok {
+  @Test
+  public void f() {
+	 WebDriver driver = new FirefoxDriver();
+	 driver.manage().window().maximize();
+	 driver.get("http://www.spicejet.com/");
+	 Sleeper.sleepTightInSeconds(3); 
+	 driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
+	 String alertmessage = driver.switchTo().alert().getText();
+	 System.out.println("Alert message text...."+alertmessage);
+	 Sleeper.sleepTightInSeconds(2);
+	 driver.switchTo().alert().accept();
+	 
+  }
+}
