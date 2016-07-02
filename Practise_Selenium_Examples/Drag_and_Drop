@@ -1,1 +1,31 @@
+package Practise_Selenium_Examples;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
 
+public class Drag_And_Drop {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("http://www.w3schools.com/html/html5_draganddrop.asp");
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+		
+		
+		//creating an action object for webdriver
+		Actions act = new Actions(driver);
+		//fetch and create webelement object for the source element
+		WebElement src=driver.findElement(By.id("drag1"));
+		//fetch and create webelement object for the destination element
+		WebElement des=driver.findElement(By.id("div2"));
+		Sleeper.sleepTightInSeconds(3);
+		//For each action we need to build and perform
+		act.dragAndDrop(src, des).build().perform();
+		
+	}
+
+}
